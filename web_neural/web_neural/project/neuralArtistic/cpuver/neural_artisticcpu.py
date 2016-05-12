@@ -125,8 +125,8 @@ class Runcpu(threading.Thread):
         #Run.__REGISTERED_ = True
         
     def setArg(self, subject, target):
-        self.subject = '/home/ebsw/eclipse/workspace1/webNeuralArtistic/src' + str(subject)
-        self.style = '/home/ebsw/eclipse/workspace1/webNeuralArtistic/src' + str(target)
+        self.subject = '/root/git/web_neura/web_neural' + str(subject)
+        self.style = '/root/git/web_neura/web_neural' + str(target)
           
     def run(self):
         print 'CPU Start background run'  

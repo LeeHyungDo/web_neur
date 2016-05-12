@@ -3,11 +3,11 @@ from django.shortcuts import render_to_response, render
 from django.template import RequestContext, loader
 from django.http import HttpResponse
 
-from webNeuralArtistic.project.models import Subject, Style, Conversecpu, Conversegpu
-from webNeuralArtistic.project.forms import SubjectForm, StyleForm
+from web_neural.project.models import Subject, Style, Conversecpu, Conversegpu
+from web_neural.project.forms import SubjectForm, StyleForm
 
-from webNeuralArtistic.project.neuralArtistic.gpuver.neural_artistic import Rungpu
-from webNeuralArtistic.project.neuralArtistic.cpuver.neural_artisticcpu import Runcpu
+from web_neural.project.neuralArtistic.gpuver.neural_artistic import Rungpu
+from web_neural.project.neuralArtistic.cpuver.neural_artisticcpu import Runcpu
 
 # Create your views here.
 def list(request):
