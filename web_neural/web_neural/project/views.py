@@ -48,6 +48,7 @@ def conversing(request):
     gpuconversing = Conversegpu.objects.last()
     gpuname= gpuconversing.get_file_name()
     
+    
     return render(request, 'conversing.html', {'cpuconv' : cpuname, 'gpuconv' : gpuname, 'cpuconverses' : cpuconversing, 'sub': sub, 'sty': sty})
     #return render(request, 'conversing.html', {'with_layout': with_layout ,'gpuconv' : gpuname, 'sub': sub, 'sty': sty})
 
