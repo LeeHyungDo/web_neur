@@ -1,0 +1,101 @@
+{% include 'layout/header.html' %}
+<!-- List of uploaded documents -->
+<div class="well">
+	<div class="container">
+		<h2>What is Neural Artistic Style?</h2>
+		<hr>  
+ 		<p>The exact name of Neural Artistic Style is <a href=http://arxiv.org/abs/1508.06576> A Neural Algorithm of Artistic Style</a>.
+ 		and it is A method to transfer the style of one image to the subject of another image. Details of this method, please refer to the paper that linked before.
+ 		<br>This web page provides a demonstration that apply the style of famous painters in your image. and Show performance comparison CPU vs GPU at KETI System</p>
+	</div>	
+</div>
+
+<div class="well">
+	<div class="container">
+	<h2> A Neural Algorithm of Artistic Style Example</h2>
+	<hr>
+ 	<div class="row">
+ 		<div class="col-md-4">
+ 			 <img src="/media/example/basic/img13.jpg" class="img-thumbnail" alt="Subject Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Subject Image </p> 		
+ 		</div>
+ 		<div class="col-md-4">
+ 			 <img src="/media/example/basic/starry_night.jpg" class="img-thumbnail" alt="Style Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Style Image </p> 		
+ 		</div>
+ 		<div class="col-md-4">
+ 			<video width="350" height="250" controls autoplay loop>
+ 		 		<source src="/media/example/video/conversedvideo.mp4" type="video/mp4" ></source>
+ 		 	</video>	 
+ 		 	<p class="text-center"> Output Image </p>		
+ 		</div>
+ 	</div>
+ 	<div class="row">
+ 		<div class="col-md-4">
+ 			 <img src="/media/example/basic/seoul-06.jpg" class="img-thumbnail" alt="Subject Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Subject Image </p> 		
+ 		</div>
+ 		<div class="col-md-4">
+ 			 <img src="/media/example/basic/starry_night.jpg" class="img-thumbnail" alt="Style Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Style Image </p> 		
+ 		</div>
+ 		<div class="col-md-4">
+ 			<video width="350" height="250" controls autoplay loop>
+ 		 		<source src="/media/example/video/conversedvideo1.mp4" type="video/mp4"></source>
+ 		 	</video>	 
+ 		 	<p class="text-center"> Output Image </p>		
+ 		</div>
+ 	</div>
+ 	</div>
+ </div>
+ 
+<div class="well">
+	<div class="container">
+		<h2>Demo, Try Your Image </h2>
+		<hr>  
+ 		<p>Try Transferring The Style of Famous Painters to The Your Image at KETI System</p>
+        
+    	<!-- Upload form. Note enctype attribute! -->
+    	<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+    		{% csrf_token %}
+    		<p>{{ subjectform.non_field_errors }}</p>
+        	<p>{{ subjectform.subjectfile.label_tag }} {{ subjectform.subjectfile.help_text }}</p>
+        	<p>
+        		{{ subjectform.subjectfile.errors }}
+            	{{ subjectform.subjectfile }}
+       		</p>
+            	{% csrf_token %}
+       		<p>{{ styleform.stylefile.label_tag }} {{ styleform.stylefile.help_text }}</p>
+       		<p>
+          		{{ styleform.stylefile.errors }}
+          		{{ styleform.stylefile }}
+       		</p>
+       		<p><input type="submit" value="Upload"/></p>
+    	</form>
+	</div>
+</div>         
+
+<div class="well">
+	<div class="container">
+	<h2>Demo, Check Your Image and Style Image</h2>
+	<hr>  
+ 	<p>Try transferring the style of famous painters to the your image at KETI system</p>
+	 	<div class="row">
+	 		<div class="col-md-4 col-md-offset-2 ">
+	 			 <img src="{{sub.subjectfile.url}}" class="img-thumbnail" alt="Subject Image" style="width:350px;height:350px">
+	 		 	<p class="text-center"> Subject Image </p> 		
+	 		</div>
+	 		<div class="col-md-4 ">
+	 			 <img src="{{sty.stylefile.url}}" class="img-thumbnail" alt="Style Image" style="width:350px;height:350px">
+	 		 	<p class="text-center"> Style Image </p> 		
+	 		</div>
+	 	</div>
+ 		<div class="row">
+ 		<form action="{% url "conversing" %}" method="get" enctype="multipart/form-data">
+ 		{% csrf_token %}
+    	<p><button type="submit" class="col-md-2 col-md-offset-5 btn btn-success">Transfer!</button></p>
+    	</form>
+    	</div>
+	</div>
+</div>
+{% include 'layout/footer.html' %}

@@ -1,0 +1,27 @@
+{% if with_layout %}
+	{% include 'layout/header.html' %}
+{% endif %}
+<script type="text/javascript" src="/media/js/top.js"></script>
+<div class="well"  >
+	<div class="container">
+	<h2>Transferring Your Image </h2>
+	<hr>  
+ 	<div class="row">
+ 		<div class="col-md-4 col-md-offset-1">
+ 			 <img src="{{sub.subjectfile.url}}" class="img-thumbnail" alt="Subject Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Subject Image </p> 		
+ 		</div>
+ 		<div class="col-md-4 col-md-offset-1">
+ 			 <img src="{{sty.stylefile.url}}" class="img-thumbnail" alt="Style Image" style="width:350px;height:250px">
+ 		 	<p class="text-center"> Style Image </p> 		
+ 		</div>
+	 </div>
+	 <div class="row" id="conved">
+     {% include 'conview.html' %}
+     </div>		
+	</div>
+</div>
+
+{% if with_layout %}
+	{% include 'layout/footer.html' %}
+{% endif %}
