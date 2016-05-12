@@ -67,3 +67,10 @@ def imge(request):
     
     return HttpResponse(tpl.render(ctx))
     #return render(request, 'conview.html', {'with_layout': with_layout ,'conv' : name, 'converses' : conversing})
+    
+def stylelist(request):
+        
+    style_list = Style.objects.all()
+    return render_to_response('stylelist.html', {'style_list': style_list,}, context_instance=RequestContext(request))
+    #return render(request, 'conview.html', {'with_layout': with_layout ,'conv' : name, 'converses' : conversing})
+
