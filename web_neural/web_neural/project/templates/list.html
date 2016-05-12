@@ -64,16 +64,28 @@
         		{{ subjectform.subjectfile.errors }}
             	{{ subjectform.subjectfile }}
        		</p>
-            	{% csrf_token %}
-       		<p>{{ styleform.stylefile.label_tag }} {{ styleform.stylefile.help_text }}</p>
-       		<p>
-          		{{ styleform.stylefile.errors }}
-          		{{ styleform.stylefile }}
-       		</p>
-       		<p><input type="submit" value="Upload"/></p>
+       		<p><input type="submit" class="btn btn-success" value="Upload"/></p>
     	</form>
 	</div>
 </div>         
+
+<div class="well">
+	<div class="container">
+		<h2>Select Style</h2>
+		<hr>  
+	</div>	
+</div>
+	{% if style_list %}
+		<div class="container">
+			{% for style in style_list %}
+				<a href="{{style.stylefile.url}}" >
+				 	<img src="{{style.stylefile.url}}" class="img-thumbnail" alt="Style Image" style="width:150px;height:150px>
+				 	<!--  style="width:350px;height:350px" -->
+				</a>
+			{% endfor %}
+		</div>
+	{% else %}
+	{% endif %}
 
 <div class="well">
 	<div class="container">

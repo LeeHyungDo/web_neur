@@ -11,24 +11,22 @@ from web_neural.project.neuralArtistic.cpuver.neural_artisticcpu import Runcpu
 
 # Create your views here.
 def list(request):
-    #Handle file upload          
+    #Handle file upload
+    
+    style_list = Style.objects.all()          
     if request.method == 'POST':
         subjectform = SubjectForm(request.POST, request.FILES)
-        styleform = StyleForm(request.POST, request.FILES)
         
-        if subjectform.is_valid() and styleform.is_valid():
+        if subjectform.is_valid():
             newsub = Subject(subjectfile=request.FILES['subjectfile'])
             newsub.save()
-            newsty = Style(stylefile=request.FILES['stylefile'])
-            newsty.save()
-            return render_to_response('list.html',{'subjectform': subjectform, 'styleform': styleform, 'sub': newsub, 'sty': newsty}, context_instance=RequestContext(request))
+            return render_to_response('list.html',{'subjectform': subjectform, 'style_list': style_list, 'sub': newsub }, context_instance=RequestContext(request))
 
     else:
         subjectform = SubjectForm() # A empty, unbound form
-        styleform = StyleForm()
      
     #Render list page with the documents and the form
-    return render_to_response('list.html',{'subjectform': subjectform, 'styleform' : styleform}, context_instance=RequestContext(request))
+    return render_to_response('list.html',{'subjectform': subjectform, 'style_list': style_list}, context_instance=RequestContext(request))
   
 def conversing(request):
     
