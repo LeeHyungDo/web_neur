@@ -7,7 +7,7 @@ class Subject(models.Model):
     subjectfile = models.ImageField(upload_to='subject/%Y%m%d')
 
 class Style(models.Model):
-    stylefile = models.ImageField(upload_to='style/%Y%m%d')
+    stylefile = models.ImageField(upload_to='style/')
 
 class Conversegpu(models.Model):
     congpufile = models.TextField(max_length=500)
