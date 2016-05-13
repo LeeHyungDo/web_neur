@@ -12,8 +12,7 @@ from web_neural.project.neuralArtistic.cpuver.neural_artisticcpu import Runcpu
 # Create your views here.
 def list(request):
     #Handle file upload
-    
-    style_list = Style.objects.all()          
+    style_list = Style.objects.all()      
     if request.method == 'POST':
         subjectform = SubjectForm(request.POST, request.FILES)
         
@@ -21,10 +20,9 @@ def list(request):
             newsub = Subject(subjectfile=request.FILES['subjectfile'])
             newsub.save()
             return render_to_response('list.html',{'subjectform': subjectform, 'style_list': style_list, 'sub': newsub }, context_instance=RequestContext(request))
-
-    else:
-        subjectform = SubjectForm() # A empty, unbound form
-     
+    else:           
+        subjectform = SubjectForm() # A empty, unbound for
+        
     #Render list page with the documents and the form
     return render_to_response('list.html',{'subjectform': subjectform, 'style_list': style_list}, context_instance=RequestContext(request))
   
@@ -67,9 +65,3 @@ def imge(request):
     return HttpResponse(tpl.render(ctx))
     #return render(request, 'conview.html', {'with_layout': with_layout ,'conv' : name, 'converses' : conversing})
     
-def stylelist(request):
-        
-    style_list = Style.objects.all()
-    return render_to_response('stylelist.html', {'style_list': style_list,}, context_instance=RequestContext(request))
-    #return render(request, 'conview.html', {'with_layout': with_layout ,'conv' : name, 'converses' : conversing})
-

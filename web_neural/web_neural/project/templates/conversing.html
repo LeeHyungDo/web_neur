@@ -1,7 +1,6 @@
-{% if with_layout %}
-	{% include 'layout/header.html' %}
-{% endif %}
-<script type="text/javascript" src="/media/js/top.js"></script>
+{% extends "layout/base.html" %}
+{% block external %} <script type="text/javascript" src="/media/js/top.js"></script> {% endblock %}
+{% block content %}
 <div class="well"  >
 	<div class="container">
 	<h2>Transferring Your Image </h2>
@@ -21,7 +20,4 @@
      </div>		
 	</div>
 </div>
-
-{% if with_layout %}
-	{% include 'layout/footer.html' %}
-{% endif %}
+{% endblock %}

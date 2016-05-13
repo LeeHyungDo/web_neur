@@ -1,0 +1,14 @@
+<div class="well">
+	<div class="container">
+		<h2>Select Style</h2>
+		<hr>
+		<div class="container">  
+		{% for style in style_list %}
+			<a href="{{style.stylefile.url}}" >
+			 	<img src="{{style.stylefile.url}}" class="img-thumbnail" alt="Style Image" style="width:150px; height:150px">
+			</a>
+		{% endfor %}
+		</div>	
+		
+	</div>	
+</div>
