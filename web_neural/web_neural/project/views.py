@@ -39,6 +39,7 @@ def conversing(request):
     
     runcpu.start()
     rungpu.start()
+    
 
     cpuconversing = Conversecpu.objects.last()
     cpuname= cpuconversing.get_file_name()

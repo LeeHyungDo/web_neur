@@ -13,7 +13,7 @@
  		<p>Try Transferring The Style of Famous Painters to The Your Image at KETI System</p>
         
     	<!-- Upload form. Note enctype attribute! -->
-    	<form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+    	<form action="{% url "list" %}#selecter" method="post" enctype="multipart/form-data">
     		{% csrf_token %}
     		<p>{{ subjectform.non_field_errors }}</p>
         	<p>{{ subjectform.subjectfile.label_tag }} {{ subjectform.subjectfile.help_text }}</p>
@@ -28,7 +28,7 @@
 
 {% include 'style_list.html' %}
 
-<div class="well">
+<div class="well" id="checker">
 	<div class="container">
 	<h2>Demo, Check Your Image and Style Image</h2>
 	<hr>  
@@ -44,10 +44,7 @@
 	 		</div>
 	 	</div>
  		<div class="row">
- 		<form action="{% url "conversing" %}" method="get" enctype="multipart/form-data">
- 		{% csrf_token %}
-    	<p><button type="submit" class="col-md-2 col-md-offset-5 btn btn-success">Transfer!</button></p>
-    	</form>
+ 		<a href="{% url "conversing" %}" class="col-md-2 col-md-offset-5 btn btn-success">Transfer!</a>
     	</div>
 	</div>
 </div>
